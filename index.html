@@ -15,9 +15,34 @@
             font-family: 'Segoe UI', 'Arial', sans-serif;
             background-color: #eef2f5;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
+        }
+
+        /* Tombol Download */
+        .download-btn-container {
+            text-align: right;
+            max-width: 1000px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .download-btn {
+            background: #2a5298;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #1e3c72;
         }
 
         /* Container CV */
@@ -28,8 +53,6 @@
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             overflow: hidden;
-            page-break-after: avoid;
-            break-inside: avoid;
         }
 
         /* Header */
@@ -75,8 +98,6 @@
         /* Section */
         .section {
             margin-bottom: 20px;
-            break-inside: avoid;
-            page-break-inside: avoid;
         }
 
         .section-title {
@@ -108,7 +129,7 @@
         }
 
         /* Pengalaman & Pendidikan */
-        .job, .edu {
+        .job {
             margin-bottom: 16px;
         }
 
@@ -178,12 +199,15 @@
             border-top: 1px solid #ddd;
         }
 
-        /* Print styling */
+        /* Print styling - untuk PDF */
         @media print {
             body {
                 background: white;
                 padding: 0;
                 margin: 0;
+            }
+            .download-btn-container {
+                display: none;
             }
             .cv {
                 box-shadow: none;
@@ -206,16 +230,21 @@
     </style>
 </head>
 <body>
-    <div class="cv">
+
+    <div class="download-btn-container">
+        <button class="download-btn" onclick="downloadPDF()">📄 Download PDF</button>
+    </div>
+
+    <div class="cv" id="cvContainer">
         <!-- Header -->
         <div class="header">
-            <h1>A.SAMMENGLANGI</h1>
-            <div class="title">Staf IT</div>
+            <h1>[NAMA LENGKAP ANDA]</h1>
+            <div class="title">Junior Programmer</div>
             <div class="contact">
-                <span>📞 081222558460</span>
-                <span>✉️ andisammenglangi@gmail.com</span>
+                <span>📞 08xx-xxxx-xxxx</span>
+                <span>✉️ email@domain.com</span>
                 <span>📍 Semarang</span>
-                <!-- <span>🔗 github.com/[username]</span> -->
+                <span>🔗 github.com/[username]</span>
             </div>
         </div>
 
@@ -223,7 +252,7 @@
         <div class="content">
             <!-- Ringkasan -->
             <div class="section">
-                <div class="section-title">Ringkasan</div>
+                <div class="section-title">Ringkasan Profesional</div>
                 <div class="hobi-text" style="background:#fff; padding:0;">
                     Mahasiswa semester 6 Teknik Informatika (Universitas Sains dan Teknologi Komputer). Menguasai <strong>dasar-dasar</strong> Laravel, CodeIgniter, PHP native, JavaScript, SQL, Python, Docker, dan Linux Ubuntu. Berpengalaman kerja di industri berat (shift 12 jam) dan restoran (multi-role). Terbiasa belajar mandiri, troubleshoot elektronik, bekerja presisi, fleksibel, dan tahan tekanan. Siap belajar lebih dalam dan berkontribusi sebagai Junior Programmer.
                 </div>
@@ -274,7 +303,7 @@
                 </div>
                 <div class="job">
                     <div class="job-title">SMA MIPA</div>
-                    <div class="job-company">SMA Negri 8 Pinrang – Lulus 2023</div>
+                    <div class="job-company">[Nama SMA] – Lulus 2023</div>
                 </div>
             </div>
 
@@ -283,8 +312,8 @@
                 <div class="section-title">Proyek & Pembelajaran Mandiri</div>
                 <div class="job-desc">
                     <ul>
-                        <li>Laravel 12 / CodeIgniter 4 / PHP native – CRUD Sederhana</li>
-                        <li>JavaScript & CSS murni – Manipulasi DOM</li>
+                        <li>Laravel 12 / CodeIgniter 4 / PHP native – [Contoh: CRUD sederhana]</li>
+                        <li>JavaScript & CSS murni – [Contoh: manipulasi DOM]</li>
                         <li>SQL dasar, Docker dasar</li>
                     </ul>
                 </div>
@@ -316,11 +345,17 @@
                 </div>
             </div>
 
-            <!-- <hr>
+            <hr>
             <div style="font-size: 11px; text-align: center; color: #888; margin-top: 10px;">
                 Referensi tersedia jika diperlukan
-            </div> -->
+            </div>
         </div>
     </div>
+
+    <script>
+        function downloadPDF() {
+            window.print();
+        }
+    </script>
 </body>
-</html>
+    </html>
