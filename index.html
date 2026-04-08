@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Staf IT</title>
+    <title>CV - Junior Programmer</title>
     <style>
         * {
             margin: 0;
@@ -15,113 +15,91 @@
             font-family: 'Segoe UI', 'Arial', sans-serif;
             background-color: #eef2f5;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            padding: 20px;
-            min-height: 100vh;
+            align-items: center;
+            padding: 40px 20px;
         }
 
-        .download-btn-container {
-            text-align: right;
-            max-width: 21cm;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        .download-btn {
-            background: #2a5298;
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            font-size: 13px;
-            font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: background 0.2s;
-        }
-
-        .download-btn:hover {
-            background: #1e3c72;
-        }
-
-        /* CV UKURAN A4 */
+        /* Container CV */
         .cv {
-            max-width: 21cm;
+            max-width: 1000px;
             width: 100%;
             background: white;
+            border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             overflow: hidden;
+            page-break-after: avoid;
+            break-inside: avoid;
         }
 
-        /* Header - lebih hemat ruang */
+        /* Header */
         .header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 15px 20px;
+            padding: 30px 35px;
             text-align: center;
         }
 
         .header h1 {
-            font-size: 24px;
+            font-size: 32px;
             letter-spacing: 1px;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
 
         .header .title {
-            font-size: 14px;
+            font-size: 18px;
             opacity: 0.9;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
         }
 
         .contact {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
-            font-size: 11px;
-            margin-top: 5px;
+            gap: 20px;
+            font-size: 14px;
+            margin-top: 10px;
         }
 
         .contact span {
             background: rgba(255,255,255,0.2);
-            padding: 3px 8px;
+            padding: 5px 12px;
             border-radius: 30px;
         }
 
-        /* Konten utama - margin & padding minimal */
+        /* Konten utama */
         .content {
-            padding: 12px 18px;
+            padding: 25px 35px;
         }
 
-        /* Section - spasi lebih rapat */
+        /* Section */
         .section {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             break-inside: avoid;
             page-break-inside: avoid;
         }
 
         .section-title {
-            font-size: 13px;
+            font-size: 18px;
             font-weight: 700;
             color: #1e3c72;
-            border-left: 4px solid #2a5298;
-            padding-left: 8px;
-            margin-bottom: 6px;
+            border-left: 5px solid #2a5298;
+            padding-left: 12px;
+            margin-bottom: 12px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Grid skill - lebih rapat */
+        /* Grid 2 kolom untuk skill */
         .skill-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3px 15px;
+            gap: 8px 20px;
         }
 
         .skill-item {
-            font-size: 11px;
-            padding: 2px 0;
+            font-size: 14px;
+            padding: 4px 0;
             border-bottom: 1px dashed #e0e0e0;
         }
 
@@ -129,137 +107,116 @@
             color: #2a5298;
         }
 
-        /* Pengalaman kerja - spasi minimal */
-        .job {
-            margin-bottom: 8px;
+        /* Pengalaman & Pendidikan */
+        .job, .edu {
+            margin-bottom: 16px;
         }
 
         .job-title {
             font-weight: 700;
-            font-size: 12px;
+            font-size: 15px;
             color: #1e3c72;
         }
 
         .job-company {
             font-weight: 600;
-            font-size: 11px;
+            font-size: 14px;
             color: #555;
         }
 
         .job-date {
-            font-size: 10px;
+            font-size: 12px;
             color: #888;
-            margin-bottom: 2px;
+            margin-bottom: 6px;
         }
 
         .job-desc {
-            font-size: 10.5px;
-            line-height: 1.4;
+            font-size: 13px;
+            line-height: 1.5;
             color: #333;
             text-align: justify;
-            margin-top: 2px;
+            margin-top: 5px;
         }
 
         .job-desc ul {
-            margin-left: 16px;
-            margin-top: 2px;
+            margin-left: 20px;
+            margin-top: 5px;
         }
 
         .job-desc li {
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
-        /* Hobi text */
+        /* Hobi & soft skill */
         .hobi-text {
-            font-size: 10.5px;
-            line-height: 1.45;
+            font-size: 13px;
+            line-height: 1.6;
             text-align: justify;
             background: #f8f9fc;
-            padding: 8px;
-            border-radius: 6px;
+            padding: 12px;
+            border-radius: 10px;
         }
 
-        /* Soft skill */
         .soft-skill {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
-            margin-top: 4px;
+            gap: 8px;
+            margin-top: 8px;
         }
 
         .soft-skill span {
             background: #eef2f5;
-            padding: 2px 8px;
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 9.5px;
+            font-size: 12px;
             color: #1e3c72;
         }
 
         hr {
-            margin: 6px 0;
+            margin: 10px 0;
             border: none;
             border-top: 1px solid #ddd;
         }
 
-        /* Print styling A4 */
+        /* Print styling */
         @media print {
             body {
                 background: white;
                 padding: 0;
                 margin: 0;
             }
-            .download-btn-container {
-                display: none;
-            }
             .cv {
                 box-shadow: none;
                 border-radius: 0;
                 max-width: 100%;
-                margin: 0;
-                padding: 0;
             }
             .contact span {
                 background: #ddd;
                 color: black;
                 print-color-adjust: exact;
-                -webkit-print-color-adjust: exact;
             }
             .header {
                 background: #1e3c72;
                 print-color-adjust: exact;
-                -webkit-print-color-adjust: exact;
             }
             .section-title {
                 print-color-adjust: exact;
-                -webkit-print-color-adjust: exact;
-            }
-            .soft-skill span {
-                print-color-adjust: exact;
-                -webkit-print-color-adjust: exact;
-            }
-            @page {
-                size: A4;
-                margin: 0.5cm;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="download-btn-container">
-        <button class="download-btn" onclick="downloadPDF()">📄 Download PDF (A4)</button>
-    </div>
-
-    <div class="cv" id="cvContainer">
+    <div class="cv">
         <!-- Header -->
         <div class="header">
             <h1>A.SAMMENGLANGI</h1>
-            <div class="title">Staf IT</div>
+            <!-- <div class="title">Junior Programmer</div> -->
             <div class="contact">
                 <span>📞 081222558460</span>
                 <span>✉️ andisammenglangi@gmail.com</span>
                 <span>📍 Semarang</span>
-        </div>
+                <!-- <span>🔗 github.com/[username]</span> -->
+            </div>
         </div>
 
         <!-- Konten -->
@@ -268,7 +225,7 @@
             <div class="section">
                 <div class="section-title">Ringkasan</div>
                 <div class="hobi-text" style="background:#fff; padding:0;">
-                    Mahasiswa aktif Teknik Informatika semester 6  (Universitas Sains dan Teknologi Komputer). Menguasai <strong>dasar-dasar</strong> Laravel, CodeIgniter, PHP native, JavaScript, SQL, Python, Docker, dan Linux Ubuntu. Berpengalaman kerja di industri berat (shift 12 jam) dan restoran (multi-role). Terbiasa belajar mandiri, troubleshoot elektronik, bekerja presisi, fleksibel, dan tahan tekanan. Siap belajar lebih dalam dan berkontribusi sebagai Staf IT.
+                    Mahasiswa aktif Teknik Informatika semester 6  (Universitas Sains dan Teknologi Komputer). Menguasai <strong>dasar-dasar</strong> Laravel, CodeIgniter, PHP native, JavaScript, SQL, Python, Docker, dan Linux Ubuntu. Berpengalaman kerja di industri berat (shift 12 jam) dan restoran (multi-role). Terbiasa belajar mandiri, troubleshoot elektronik, bekerja presisi, fleksibel, dan tahan tekanan. Siap belajar lebih dalam dan berkembang bersama perusahaan atau tim.
                 </div>
             </div>
 
@@ -317,7 +274,7 @@
                 </div>
                 <div class="job">
                     <div class="job-title">SMA MIPA</div>
-                    <div class="job-company"> SMA Negri 8 Pinrang – Lulus 2023</div>
+                    <div class="job-company">SMA Negri 8 Pinrang – Lulus 2023</div>
                 </div>
             </div>
 
@@ -326,8 +283,8 @@
                 <div class="section-title">Proyek & Pembelajaran Mandiri</div>
                 <div class="job-desc">
                     <ul>
-                        <li>Laravel 12 / CodeIgniter 4 / PHP native – CRUD sederhana</li>
-                        <li>JavaScript & CSS murni – manipulasi DOM</li>
+                        <li>Laravel 12 / CodeIgniter 4 / PHP native – CRUD Sederhana</li>
+                        <li>JavaScript & CSS murni – Manipulasi DOM</li>
                         <li>SQL dasar, Docker dasar</li>
                     </ul>
                 </div>
@@ -359,13 +316,11 @@
                 </div>
             </div>
 
+            <!-- <hr>
+            <div style="font-size: 11px; text-align: center; color: #888; margin-top: 10px;">
+                Referensi tersedia jika diperlukan
+            </div> -->
         </div>
     </div>
-
-    <script>
-        function downloadPDF() {
-            window.print();
-        }
-    </script>
 </body>
-                </html>
+</html>
